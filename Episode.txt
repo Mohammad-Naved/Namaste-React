@@ -1,0 +1,44 @@
+Laying the foundation
+
+
+
+    "scripts": {
+     "start":"parcel index.html",
+    "test": "jest"
+  },/*//this script will use to run dev build in package.json
+
+
+//React.createElement => Object => When we render this element on dom it becomes an html
+
+// const heading = React.createElement("h1", { id: "heading" }, "Salam React"); //This is an object
+
+//JSX=> HTML-like or XML-like syntax
+//Is JSX a valid Javascript? No it is not pure javascript beacuse our jsengine can't understand js.
+//JS engine understand ECMAScript
+
+//JSX (transpiled (converted to code that browser can understand) before it reaches JS Engine ) =>PARCEL is doing transpiled
+//(Actually Babel is doing the transpiled, Parcel just passing it to babel)
+//Babel is converting JSX to React.createElement
+//JSX => React.createElement => Object => When we render this element on dom it becomes an html
+//If we have to give attribute to JSX we use camelCase
+//If you want to write JSX in multiple line wrap in parenthesis ().Why we wrapping in parenthesis () because babel needs to understand where is JSX starting and where is JSX ending.
+
+const heading = <h1 id="heading">Salam React By JSX</h1>;
+
+
+//React component
+//Everyting is a component in react
+//Two Types-
+//1)Class-based component-OLD
+//2)Functional Component-NEW
+
+//React functional Component--> just a normal javascript function which returns some piece of JSX.
+//Always create a component with Capital letter.
+//React functional Component we can also called as javascript function which return React Element.  z
+const HeadingComponent = () => (
+  <div>
+    <h1>This is another functional Component</h1>
+  </div>
+);
+
+//Component composition=>Injecting one component into another.
