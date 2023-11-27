@@ -4,6 +4,7 @@
   "description": "Learning React from basic",
   "main": "App.js",
   "scripts": {
+    "start":"parcel index.html",
     "test": "jest"
   },
   "repository": {
