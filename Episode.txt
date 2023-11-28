@@ -21,7 +21,8 @@ Laying the foundation
 //Babel is converting JSX to React.createElement
 //JSX => React.createElement => Object => When we render this element on dom it becomes an html
 //If we have to give attribute to JSX we use camelCase
-//If you want to write JSX in multiple line wrap in parenthesis ().Why we wrapping in parenthesis () because babel needs to understand where is JSX starting and where is JSX ending.
+//If you want to write JSX in multiple line wrap in parenthesis ().Why we wrapping in parenthesis () because babel needs to understand 
+//where is JSX starting and where is JSX ending.
 
 const heading = <h1 id="heading">Salam React By JSX</h1>;
 
@@ -42,3 +43,7 @@ const HeadingComponent = () => (
 );
 
 //Component composition=>Injecting one component into another.
+
+//Props-> in simple term we can called as properties.It is same as  passing argument to the function.
+Mostly we can use props to pass dynamic data to component.
+config-driven-ui-->
