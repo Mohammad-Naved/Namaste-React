@@ -5,8 +5,14 @@ import { useState } from "react";
 
 const Body = () => {
 const [resturantListData,setResturantListData]=useState(resLIST);
+const [resbutton,setResbutton]=useState(false);
 
+const toggleButton=()=>{
+  setResturantListData(filteredRes);
+}
 
+const filteredRes=resLIST.filter((resLIST) => resLIST.info.avgRating > 4);
+let resturants=[];
   return (
     <div className="body">
       <div className="filter">
@@ -14,26 +20,16 @@ const [resturantListData,setResturantListData]=useState(resLIST);
           className="filter-btn"
           type="submit"
           onClick={() => {
-            const filteredRes=resLIST.filter((resLIST) => resLIST.info.avgRating > 4);
-            setResturantListData(filteredRes);
-            
+            {toggleButton(true)}
+            setResbutton(!resbutton)
           }}
         >
-          Top rated resturant
+          {resbutton ? 'All Resturant' : 'Top-Rated Resturant'}
         </button>
-        <button
-          className="filter-btn"
-          type="submit"
-          onClick={() => {
-            
-            setResturantListData(resLIST);
-            
-          }}
-        >
-          All Resturant
-        </button>
+        
       </div>
       <div className="resCard">
+
         {resturantListData.map((resturant) => (
           <ResturantCard key={resturant.info.id} resOBJ={resturant} />
         ))}
