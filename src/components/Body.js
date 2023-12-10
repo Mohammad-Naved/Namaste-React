@@ -1,18 +1,27 @@
+import { SWIGGYAPI } from "../utility/url";
 import ResturantCard from "./ResturantCard";
-import resLIST from "../utility/apiData";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Body = () => {
-const [resturantListData,setResturantListData]=useState(resLIST);
-const [resbutton,setResbutton]=useState(false);
+  const [resturantListData, setResturantListData] = useState([]);
 
-const toggleButton=()=>{
-  setResturantListData(filteredRes);
-}
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-const filteredRes=resLIST.filter((resLIST) => resLIST.info.avgRating > 4);
-let resturants=[];
+  const fetchData = async () => {
+    const data = await fetch(SWIGGYAPI);
+    const json = await data.json();
+    setResturantListData(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+
+  const filteredRes = resturantListData.filter(
+    (resturantListData) => resturantListData.info.avgRating > 4
+  );
+  let resturants = [];
   return (
     <div className="body">
       <div className="filter">
@@ -20,16 +29,13 @@ let resturants=[];
           className="filter-btn"
           type="submit"
           onClick={() => {
-            {toggleButton(true)}
-            setResbutton(!resbutton)
+            setResturantListData(filteredRes);
           }}
         >
-          {resbutton ? 'All Resturant' : 'Top-Rated Resturant'}
+          Top-Rated Resturant
         </button>
-        
       </div>
       <div className="resCard">
-
         {resturantListData.map((resturant) => (
           <ResturantCard key={resturant.info.id} resOBJ={resturant} />
         ))}
