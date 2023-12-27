@@ -14,12 +14,12 @@ const Body = () => {
     const data = await fetch(SWIGGYAPI);
     const json = await data.json();
     setResturantListData(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
   const filteredRes = resturantListData.filter(
-    (resturantListData) => resturantListData.info.avgRating > 4
+    (resturantListData) => resturantListData.info.avgRating > 4.3
   );
   let resturants = [];
   return (
