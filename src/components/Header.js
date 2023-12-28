@@ -1,4 +1,9 @@
-const Header = () => (
+import { useState } from "react";
+
+const Header = () => {
+  const [btnName, setBtnName] = useState("Log-In");
+
+  return (
     <div className="header">
       <img
         className="logo"
@@ -10,9 +15,17 @@ const Header = () => (
         <li>Home</li>
         <li>about us</li>
         <li>Saved item</li>
+        <button
+          className="longin-btn"
+          onClick={() => {
+            btnName === "Log-In" ? setBtnName("Log-Out") : setBtnName("Log-In");
+          }}
+        >
+          {btnName}
+        </button>
       </ul>
     </div>
   );
-  
+};
 
 export default Header;

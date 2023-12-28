@@ -81,3 +81,10 @@ Microservice archetecture-->is an architectural style that structures an applica
 
     How Microservice intract with each other?
           Everyting hosted on different port so if any service wants to connect with other call other service.
+
+
+Read about Optional channing
+
+why we need useState--> It help us to update component based on some Condtion for ex-If you want to update a text onclick.
+
+
