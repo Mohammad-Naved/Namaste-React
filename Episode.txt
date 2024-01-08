@@ -86,5 +86,9 @@ Microservice archetecture-->is an architectural style that structures an applica
 Read about Optional channing
 
 why we need useState--> It help us to update component based on some Condtion for ex-If you want to update a text onclick.
+useEffect-->if no dependency array useEffect is called Everytime my header component render.
+              if  dependency array is empty useEffect is called only once(initial render).
+
+Router-->
 
 

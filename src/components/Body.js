@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { SWIGGYAPI } from "../utility/url";
 import ResturantCard from "./ResturantCard";
 import Shiver from "./Shiver";
@@ -17,15 +18,18 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
     setResturantListData(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredListData(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    console.log(json?.data)
   };
 
+  console.log(resturantListData)
+
   const filteredRes = resturantListData.filter(
-    (resturantListData) => resturantListData.info.avgRating > 4.3
+    (resturantListData) => resturantListData.info.avgRating > 4.1
   );
 
   let resturants = [];
@@ -81,7 +85,7 @@ const Body = () => {
       </div>
       <div className="resCard">
         {filteredListData.map((resturant) => (
-          <ResturantCard key={resturant.info.id} resOBJ={resturant} />
+          <Link className="resLink" to={"/resturants/"+resturant.info.id}><ResturantCard key={resturant.info.id} resOBJ={resturant} /></Link>
         ))}
       </div>
     </div>
